@@ -11,6 +11,8 @@ jobs:
   deploy-cf-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Conventional commits check using commitizen
+        uses: manang/commitizen-check@v0.0.1
       - name: Git clone the repository
         uses: actions/checkout@v3
       - name: configure aws credentials
