@@ -1,21 +1,28 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: Testing purposes
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "former2"
+Description: ""
+Resources:
+    EC2Instance:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0dfcb1ef8550277af"
+            InstanceType: "t2.micro"
+            KeyName: "pacbot"
+            AvailabilityZone: !Sub "${AWS::Region}e"
+            Tenancy: "default"
+            SubnetId: "subnet-02bfadd2405ae1300"
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - "sg-074c72bb9ceeb7f93"
+            SourceDestCheck: true
+            
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "test-server1"
+            HibernationOptions: 
+                Configured: false
+            EnclaveOptions: 
+                Enabled: false
 
-Resources: 
-    myEC2Instance:
-      Type: AWS::EC2::Instance
-      Properties:
-        KeyName: 
-        DisableApiTermination: 
-        ImageId: ami-0ff8a91507f77f867
-        InstanceType: t3.micro
-        Monitoring: false
-        SecurityGroupIds:
-          - sg-074c72bb9ceeb7f93
-        UserData: !Base64 |
-          #!/bin/bash -ex
-          # put your script here
-          yum update -y
-        Tags:
-          - Key: gacf-demo
-            Value: test
