@@ -20,7 +20,7 @@ Resources:
             Tags: 
               - 
                 Key: "Name"
-                Value: "test-server1"
+                Value: "test-server-alpha"
             HibernationOptions: 
                 Configured: false
             EnclaveOptions: 
