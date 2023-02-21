@@ -10,20 +10,20 @@ permissions:
 jobs:
   
   runs-on: ubuntu-latest
-  steps:
-    - name: Git clone the repository
-      uses: actions/checkout@v3
-    - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        role-to-assume: arn:aws:iam::753308464062:role/githubactions-dmf-role
-        role-session-name: samplerolesession
-        aws-region: ${{ env.AWS_REGION }}
-    - name: Deploy to AWS Cloudformation
-      uses: aws-actions/aws-cloudformation-github-deploy@v1.1.0
-      with:
-        name: dmf-cloudformation-demo
-        template : gacf-deploy.yml
-        no-fail-on-empty-changeset: 1
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::753308464062:role/githubactions-dmf-role
+          role-session-name: samplerolesession
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Deploy to AWS Cloudformation
+        uses: aws-actions/aws-cloudformation-github-deploy@v1.1.0
+        with:
+          name: dmf-cloudformation-demo
+          template : gacf-deploy.yml
+          no-fail-on-empty-changeset: 1
 
           
