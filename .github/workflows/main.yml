@@ -13,9 +13,6 @@ jobs:
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
-      - name: Conventional commits check using commitizen
-        uses: manang/commitizen-check@v0.0.1
-      
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
